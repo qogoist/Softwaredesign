@@ -1,0 +1,11 @@
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\obj\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.csprojAssemblyReference.cache
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\obj\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.csproj.CoreCompileInputs.cache
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\obj\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.AssemblyInfoInputs.cache
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\obj\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.AssemblyInfo.cs
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\bin\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.deps.json
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\bin\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.runtimeconfig.json
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\bin\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.runtimeconfig.dev.json
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\bin\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.dll
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\bin\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.pdb
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\obj\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.dll
+C:\Repos\Softwaredesign\Aufgabe 1 Buchstabendreher\obj\Debug\netcoreapp2.1\Aufgabe 1 Buchstabendreher.pdb
