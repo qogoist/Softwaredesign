@@ -1,7 +1,5 @@
 ### VisualStudioCode ###
-**/.vscode/*
-!**/.vscode/launch.json
-!**/.vscode/tasks.json
+.vscode
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
