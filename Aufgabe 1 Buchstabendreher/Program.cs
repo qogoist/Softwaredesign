@@ -49,8 +49,7 @@ namespace Aufgabe_1_Buchstabendreher
         static string reverseSentence(string s)
         {
             string output;
-            output = reverseWords(s);
-            output = reverseLetters(output);
+            output = reverseWords(reverseLetters(s));
 
             return output;
         }
