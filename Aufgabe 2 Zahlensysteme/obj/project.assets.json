@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\Softwaredesign\\Aufgabe 2 Zahlendreher\\Aufgabe 2 Zahlendreher.csproj",
-      "projectName": "Aufgabe 2 Zahlendreher",
-      "projectPath": "C:\\Repos\\Softwaredesign\\Aufgabe 2 Zahlendreher\\Aufgabe 2 Zahlendreher.csproj",
+      "projectUniqueName": "C:\\Repos\\Softwaredesign\\Aufgabe 2 Zahlensysteme\\Aufgabe 2 Zahlensysteme.csproj",
+      "projectName": "Aufgabe 2 Zahlensysteme",
+      "projectPath": "C:\\Repos\\Softwaredesign\\Aufgabe 2 Zahlensysteme\\Aufgabe 2 Zahlensysteme.csproj",
       "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Repos\\Softwaredesign\\Aufgabe 2 Zahlendreher\\obj\\",
+      "outputPath": "C:\\Repos\\Softwaredesign\\Aufgabe 2 Zahlensysteme\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
