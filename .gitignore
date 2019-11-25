@@ -1,6 +1,7 @@
 ### VisualStudioCode ###
-.vscode
-.obj
+.vscode/
+obj/
+bin/
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
