@@ -11,20 +11,11 @@ namespace Aufgabe_4_5_Quiz
 
         static void Main(string[] args)
         {
-            //TODO: initialize questions
-            //questions.Add(new QuizElementTrueFalse("Softwaredesign is a lot of fun.", true));
-            //questions.Add(new QuizElementText("Who wrote this program?", new Answer("Jonas Haller", true)));
-            //questions.Add(new QuizElementGuess("How many fingers do you have?", 10f, 0.2f));
-            //questions.Add(new QuizElementMultAnswers("What buildings exist at the HFU?", new List<Answer> {new Answer("A", true), new Answer ("B", true), new Answer ("Z", false), new Answer ("X", false)}));
-            //questions.Add(new QuizElementSingleAnswer("Is programming an art?", new List<Answer> {new Answer("Yes", false), new Answer("No", false), new Answer("Depends", true)}));
+            AddDefaultQuestions();
 
             while (true)
             {
-                Console.WriteLine("Welcome to Quiz! Your current score is " + score + " you have answered " + questionsAnswered + " questions.");
-                Console.WriteLine("1. Answer Question");
-                Console.WriteLine("2. Create New Question");
-                Console.WriteLine("3. Quit Game");
-                Console.Write("> ");
+                DisplayMainMenu();
 
                 try
                 {
@@ -80,14 +71,7 @@ namespace Aufgabe_4_5_Quiz
         {
             while (true)
             {
-                Console.WriteLine("These are the available question types, chose one:");
-                Console.WriteLine("1. True False Question");
-                Console.WriteLine("2. Text Question");
-                Console.WriteLine("3. Guess Question");
-                Console.WriteLine("4. Multiple Answer Question");
-                Console.WriteLine("5. Single Answer Question");
-                Console.WriteLine("6. Go Back");
-                Console.Write("> ");
+                DisplayQuestionTypes();
 
                 try
                 {
@@ -133,6 +117,36 @@ namespace Aufgabe_4_5_Quiz
                     Console.WriteLine("Input had the wring format, try again!");
                 }
             }
+        }
+
+        static void DisplayMainMenu()
+        {
+            Console.WriteLine("Welcome to Quiz! Your current score is " + score + " you have answered " + questionsAnswered + " questions.");
+            Console.WriteLine("1. Answer Question");
+            Console.WriteLine("2. Create New Question");
+            Console.WriteLine("3. Quit Game");
+            Console.Write("> ");
+        }
+
+        static void DisplayQuestionTypes()
+        {
+            Console.WriteLine("These are the available question types, chose one:");
+            Console.WriteLine("1. True False Question");
+            Console.WriteLine("2. Text Question");
+            Console.WriteLine("3. Guess Question");
+            Console.WriteLine("4. Multiple Answer Question");
+            Console.WriteLine("5. Single Answer Question");
+            Console.WriteLine("6. Go Back");
+            Console.Write("> ");
+        }
+
+        static void AddDefaultQuestions()
+        {
+            questions.Add(new QuizElementTrueFalse("Softwaredesign is a lot of fun.", true));
+            questions.Add(new QuizElementText("Who wrote this program?", new Answer("Jonas Haller", true)));
+            questions.Add(new QuizElementGuess("How many fingers do you have?", 10f, 0.2f));
+            questions.Add(new QuizElementMultAnswers("What buildings exist at the HFU?", new List<Answer> { new Answer("A", true), new Answer("B", true), new Answer("Z", false), new Answer("X", false) }));
+            questions.Add(new QuizElementSingleAnswer("Is programming an art?", new List<Answer> { new Answer("Yes", false), new Answer("No", false), new Answer("Depends", true) }));
         }
     }
 }
