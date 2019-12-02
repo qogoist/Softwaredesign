@@ -16,16 +16,16 @@ namespace Aufgabe_6_Tree
             this.children = new List<TreeNode<T>> { };
         }
 
-        public void AppendChild(TreeNode<T> node)
+        public void AppendChild(TreeNode<T> child)
         {
-            this.children.Add(node);
-            node.parent = this;
+            this.children.Add(child);
+            child.parent = this;
         }
 
-        public void RemoveChild(TreeNode<T> node)
+        public void RemoveChild(TreeNode<T> child)
         {
-            this.children.Remove(node);
-            node.parent = null;
+            this.children.Remove(child);
+            child.parent = null;
         }
 
         override public string ToString()
