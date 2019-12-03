@@ -18,6 +18,14 @@ namespace Aufgabe_6_Tree
 
         public void AppendChild(TreeNode<T> child)
         {
+            TreeNode<T> root = this.FindRoot();
+
+            if (child.Equals(root))
+                return;
+
+            if (child.parent != null)
+                child.parent.RemoveChild(child);
+
             this.children.Add(child);
             child.parent = this;
         }
@@ -31,6 +39,23 @@ namespace Aufgabe_6_Tree
         override public string ToString()
         {
             return content.ToString();
+        }
+
+        public void ForEach(Action<TreeNode<T>> func)
+        {
+            func(this);
+            foreach (var child in children)
+            {
+                child.ForEach(func);
+            }
+        }
+
+        public TreeNode<T> FindRoot()
+        {
+            if (parent == null)
+                return this;
+            else
+                return parent.FindRoot();
         }
     }
 }
