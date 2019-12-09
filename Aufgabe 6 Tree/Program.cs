@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace Aufgabe_6_Tree
 {
     class Program
@@ -9,6 +10,9 @@ namespace Aufgabe_6_Tree
         {
             var tree = new Tree<string>();
             var root = tree.CreateNode("root");
+
+            root.AddListener("AppendChild", HandleAppendChild);
+
             var c1 = tree.CreateNode("child1");
             var c2 = tree.CreateNode("child2");
             root.AppendChild(c1);
@@ -25,13 +29,22 @@ namespace Aufgabe_6_Tree
 
             tree.Print(root);
 
-            root.ForEach(Func<string>);
+            root.ForEach(Func);
 
         }
 
-        static void Func<T>(TreeNode<T> node)
+        static void Func<T>(Tree<T>.TreeNode node)
         {
             Console.Write(node + " | ");
+        }
+
+        static void HandleAppendChild()
+        {
+            Console.WriteLine("Child added");
+        }
+        static void HandleRemoveChild()
+        {
+            Console.WriteLine("Child removed");
         }
     }
 }
