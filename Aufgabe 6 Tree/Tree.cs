@@ -42,10 +42,11 @@ namespace Aufgabe_6_Tree
 
             public void AppendChild(TreeNode child)
             {
-                TreeNode root = this.FindRoot();
-
-                if (child.Equals(root))
+                if (this.IsAncestor(child))
+                {
+                    Console.WriteLine("Invalid action: tried to append an element to its descendant.");
                     return;
+                }
 
                 if (listeners.ContainsKey("AppendChild"))
                 {
@@ -58,6 +59,22 @@ namespace Aufgabe_6_Tree
 
                 this.children.Add(child);
                 child.parent = this;
+            }
+
+            private bool IsAncestor(TreeNode node)
+            {
+                if (this.parent == null)
+                {
+                    return false;
+                }
+                else if (this.parent == node)
+                {
+                    return true;
+                }
+                else
+                {
+                    return this.parent.IsAncestor(node);
+                }
             }
 
             public void RemoveChild(TreeNode child)
@@ -93,6 +110,7 @@ namespace Aufgabe_6_Tree
                 else
                     return parent.FindRoot();
             }
+
 
             public void AddListener(string type, Listener handler)
             {
