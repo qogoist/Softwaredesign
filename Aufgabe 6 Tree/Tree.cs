@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace Aufgabe_6_Tree
 {
-    public delegate void Listener();
-
     class Tree<T>
     {
         public TreeNode CreateNode(T content)
@@ -26,11 +24,12 @@ namespace Aufgabe_6_Tree
 
         public class TreeNode
         {
+            public delegate void Listener();
+
             public TreeNode parent;
             public List<TreeNode> children;
             public T content;
             private Dictionary<string, Listener> listeners;
-            //private event Listener ListenerEvent;
 
             public TreeNode(T content)
             {
@@ -114,9 +113,16 @@ namespace Aufgabe_6_Tree
 
             public void AddListener(string type, Listener handler)
             {
-                //Some functionality
-                Console.WriteLine("Added " + type + ", " + handler + " to listeners.");
-                listeners.Add(type, handler);
+                if (listeners.ContainsKey(type))
+                {
+                    Console.WriteLine("Added another handler to " + type + ".");
+                    listeners[type] += handler;
+                }
+                else
+                {
+                    Console.WriteLine("Added a first handler to " + type + ".");
+                    listeners.Add(type, handler);
+                }
             }
         }
     }

@@ -11,7 +11,8 @@ namespace Aufgabe_6_Tree
             var tree = new Tree<string>();
             var root = tree.CreateNode("root");
 
-            //root.AddListener("AppendChild", HandleAppendChild);
+            root.AddListener("AppendChild", HandleAppendChild);
+            root.AddListener("AppendChild", HandleAppendChild);
 
             var c1 = tree.CreateNode("child1");
             var c2 = tree.CreateNode("child2");
@@ -26,7 +27,7 @@ namespace Aufgabe_6_Tree
             c1.AppendChild(g2);
             c2.AppendChild(g3);
             c2.AppendChild(g4);
-            g4.AppendChild(root);
+            //g4.AppendChild(root);
 
             tree.Print(root);
 
