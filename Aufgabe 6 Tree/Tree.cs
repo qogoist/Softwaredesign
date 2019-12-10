@@ -24,19 +24,19 @@ namespace Aufgabe_6_Tree
 
         public class TreeNode
         {
-            public delegate void Listener();
+            public delegate void EventHandler();
 
             public TreeNode parent;
             public List<TreeNode> children;
             public T content;
-            private Dictionary<string, Listener> listeners;
+            private Dictionary<string, EventHandler> listeners;
 
             public TreeNode(T content)
             {
                 this.content = content;
                 this.parent = null;
                 this.children = new List<TreeNode> { };
-                this.listeners = new Dictionary<string, Listener> { };
+                this.listeners = new Dictionary<string, EventHandler> { };
             }
 
             public void AppendChild(TreeNode child)
@@ -49,8 +49,8 @@ namespace Aufgabe_6_Tree
 
                 if (listeners.ContainsKey("AppendChild"))
                 {
-                    Listener listener = listeners["AppendChild"];
-                    listener();
+                    EventHandler handler = listeners["AppendChild"];
+                    handler();
                 }
 
                 if (child.parent != null)
@@ -83,7 +83,7 @@ namespace Aufgabe_6_Tree
 
                 if (listeners.ContainsKey("RemoveChild"))
                 {
-                    Listener listener = listeners["RemoveChild"];
+                    EventHandler listener = listeners["RemoveChild"];
                     listener();
                 }
             }
@@ -110,18 +110,29 @@ namespace Aufgabe_6_Tree
                     return parent.FindRoot();
             }
 
-
-            public void AddListener(string type, Listener handler)
+            public void AddListener(string listenerType, EventHandler handler)
             {
-                if (listeners.ContainsKey(type))
+                if (listeners.ContainsKey(listenerType))
                 {
-                    Console.WriteLine("Added another handler to " + type + ".");
-                    listeners[type] += handler;
+                    Console.WriteLine("Added another handler to " + listenerType + ".");
+                    listeners[listenerType] += handler;
                 }
                 else
                 {
-                    Console.WriteLine("Added a first handler to " + type + ".");
-                    listeners.Add(type, handler);
+                    Console.WriteLine("Added a first handler to " + listenerType + ".");
+                    listeners.Add(listenerType, handler);
+                }
+            }
+
+            public void RemoveListener(string type, EventHandler handler)
+            {
+                if (listeners.ContainsKey(type))
+                {
+                    if (listeners[type].Method == handler.Method)
+                    {
+                        Console.WriteLine("Removing handler from " + type + ".");
+                        listeners[type] -= handler;
+                    }                    
                 }
             }
         }
