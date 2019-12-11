@@ -28,11 +28,26 @@ namespace Aufgabe_6_Tree
             c1.AppendChild(g2);
             c2.AppendChild(g3);
             c2.AppendChild(g4);
-            //g4.AppendChild(root);
+            g4.AppendChild(c1);
+            g4.AppendChild(tree.CreateNode("cheese"));
+            g4.AppendChild(tree.CreateNode("cheese1"));
+            g4.AppendChild(tree.CreateNode("cheese2"));
 
-            tree.Print(root);
+            //tree.Print(root);
 
             //root.ForEach(Func);
+
+            // var enumerator = root.GetEnumerator();
+
+            // for (int i = 0; enumerator.MoveNext(); i++)
+            // {
+            //     Console.WriteLine(enumerator.Current);
+            // }
+
+            foreach (var child in root)
+            {
+                Console.WriteLine(child.content);
+            }
 
         }
 

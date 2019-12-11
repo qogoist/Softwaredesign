@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Aufgabe_6_Tree
@@ -22,7 +23,7 @@ namespace Aufgabe_6_Tree
             }
         }
 
-        public class TreeNode
+        public class TreeNode: IEnumerable<TreeNode>
         {
             public delegate void EventHandler();
 
@@ -134,6 +135,19 @@ namespace Aufgabe_6_Tree
                         listeners[type] -= handler;
                     }                    
                 }
+            }
+
+            public IEnumerator<TreeNode> GetEnumerator()
+            {
+                yield return this;
+                foreach (var childNode in this.children)
+                    foreach(var child in childNode)
+                        yield return child; 
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
             }
         }
     }
