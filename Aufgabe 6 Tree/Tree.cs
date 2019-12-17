@@ -23,7 +23,7 @@ namespace Aufgabe_6_Tree
             }
         }
 
-        public class TreeNode: IEnumerable<TreeNode>
+        public class TreeNode
         {
             public delegate void EventHandler();
 
@@ -143,11 +143,6 @@ namespace Aufgabe_6_Tree
                 foreach (var childNode in this.children)
                     foreach(var child in childNode)
                         yield return child; 
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return GetEnumerator();
             }
         }
     }

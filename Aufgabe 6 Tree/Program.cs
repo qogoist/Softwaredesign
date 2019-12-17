@@ -11,13 +11,13 @@ namespace Aufgabe_6_Tree
             var tree = new Tree<string>();
             var root = tree.CreateNode("root");
 
-            root.AddListener("AppendChild", HandleAppendChild);
-            root.AddListener("AppendChild", HandleAppendChild);
+            //root.AddListener("AppendChild", HandleAppendChild);
+            //root.AddListener("AppendChild", HandleAppendChild);
 
             var c1 = tree.CreateNode("child1");
             var c2 = tree.CreateNode("child2");
             root.AppendChild(c1);
-            root.RemoveListener("AppendChild", HandleAppendChild);
+            //root.RemoveListener("AppendChild", HandleAppendChild);
             root.AppendChild(c2);
 
             var g1 = tree.CreateNode("grandchild1");
@@ -28,7 +28,7 @@ namespace Aufgabe_6_Tree
             c1.AppendChild(g2);
             c2.AppendChild(g3);
             c2.AppendChild(g4);
-            g4.AppendChild(c1);
+            //g4.AppendChild(c1);
             g4.AppendChild(tree.CreateNode("cheese"));
             g4.AppendChild(tree.CreateNode("cheese1"));
             g4.AppendChild(tree.CreateNode("cheese2"));
@@ -44,9 +44,16 @@ namespace Aufgabe_6_Tree
             //     Console.WriteLine(enumerator.Current);
             // }
 
-            foreach (var child in root)
+            // foreach (var child in root)
+            // {
+            //     Console.WriteLine(child.content);
+            // }
+
+            var enumerator = root.GetEnumerator();
+
+            for (int i = 0; enumerator.MoveNext(); i++)
             {
-                Console.WriteLine(child.content);
+                Console.WriteLine(enumerator.Current);
             }
 
         }
