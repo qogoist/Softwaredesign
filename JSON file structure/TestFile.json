@@ -3,8 +3,7 @@
         "Question": "Is programming an art?",
         "Type": "SingleAnswer",
         "CorrectAnswer": "Yes",
-        "Answer2": "No",
-        "Answer3": "Maybe"
+        "FalseAnswers": ["No", "Maybe"]
     },
     {
         "Question": "How many legs does a Zebra have?",
