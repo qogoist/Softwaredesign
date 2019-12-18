@@ -1,0 +1,15 @@
+[
+    {
+        "Question": "Is programming an art?",
+        "Type": "SingleAnswer",
+        "CorrectAnswer": "Yes",
+        "Answer2": "No",
+        "Answer3": "Maybe"
+    },
+    {
+        "Question": "How many legs does a Zebra have?",
+        "Type": "Guess",
+        "CorrectAnswer": 4,
+        "Tolerance": 0
+    }
+]
