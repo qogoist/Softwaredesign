@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Aufgabe_4_5_Quiz
 {
     class Program
     {
-        public static List<QuizElement> questions = new List<QuizElement>();
-        public static int score = 0;
-        public static int questionsAnswered = 0;
+        public static List<QuizElement> _quizElements = new List<QuizElement>();
+        public static int _score = 0;
+        public static int _questionsAnswered = 0;
 
         static void Main(string[] args)
         {
@@ -46,19 +49,19 @@ namespace Aufgabe_4_5_Quiz
         static void AnswerQuestion()
         {
             Random rnd = new Random();
-            int randQuestion = rnd.Next(0, questions.Count);
+            int randQuestion = rnd.Next(0, _quizElements.Count);
 
-            var question = questions[randQuestion];
+            var question = _quizElements[randQuestion];
             question.Display();
             var input = Console.ReadLine();
 
-            questionsAnswered++;
+            _questionsAnswered++;
 
             var isCorrect = question.CheckAnswer(input.ToLower());
 
             if (isCorrect)
             {
-                score++;
+                _score++;
                 Console.WriteLine("Your answer was correct!");
             }
             else
@@ -78,22 +81,28 @@ namespace Aufgabe_4_5_Quiz
                     var input = Int32.Parse(Console.ReadLine());
 
                     QuizElement question = null;
+                    string basePath = "QuizElements\\";
                     switch (input)
                     {
                         case 1:
                             question = QuizElementTrueFalse.CreateQuizElement();
+                            AddToDatabase<QuizElementTrueFalse>(question, basePath + "TrueFalse.json");
                             break;
                         case 2:
                             question = QuizElementText.CreateQuizElement();
+                            AddToDatabase<QuizElementText>(question, basePath + "Text.json");
                             break;
                         case 3:
                             question = QuizElementGuess.CreateQuizElement();
+                            AddToDatabase<QuizElementGuess>(question, basePath + "Guess.json");
                             break;
                         case 4:
                             question = QuizElementMultAnswers.CreateQuizElement();
+                            AddToDatabase<QuizElementMultAnswers>(question, basePath + "MultAnswers.json");
                             break;
                         case 5:
                             question = QuizElementSingleAnswer.CreateQuizElement();
+                            AddToDatabase<QuizElementSingleAnswer>(question, basePath + "SingleAnswer.json");
                             break;
                         default:
                             break;
@@ -103,7 +112,7 @@ namespace Aufgabe_4_5_Quiz
 
                     if (question != null)
                     {
-                        questions.Add(question);
+                        _quizElements.Add(question);
                         Console.WriteLine("Done!");
                     }
                     else
@@ -121,7 +130,7 @@ namespace Aufgabe_4_5_Quiz
 
         static void DisplayMainMenu()
         {
-            Console.WriteLine("Welcome to Quiz! Your current score is " + score + " you have answered " + questionsAnswered + " questions.");
+            Console.WriteLine("Welcome to Quiz! Your current score is " + _score + " you have answered " + _questionsAnswered + " questions.");
             Console.WriteLine("1. Answer Question");
             Console.WriteLine("2. Create New Question");
             Console.WriteLine("3. Quit Game");
@@ -142,11 +151,38 @@ namespace Aufgabe_4_5_Quiz
 
         static void AddDefaultQuestions()
         {
-            questions.Add(new QuizElementTrueFalse("Softwaredesign is a lot of fun.", true));
-            questions.Add(new QuizElementText("Who wrote this program?", new Answer("Jonas Haller", true)));
-            questions.Add(new QuizElementGuess("How many fingers do you have?", 10f, 0.2f));
-            questions.Add(new QuizElementMultAnswers("What buildings exist at the HFU?", new List<Answer> { new Answer("A", true), new Answer("B", true), new Answer("Z", false), new Answer("X", false) }));
-            questions.Add(new QuizElementSingleAnswer("Is programming an art?", new List<Answer> { new Answer("Yes", false), new Answer("No", false), new Answer("Depends", true) }));
+            string basePath = "Quizelements\\";
+            DeserializeAndAdd<QuizElementGuess>(basePath + "Guess.json");
+            DeserializeAndAdd<QuizElementMultAnswers>(basePath + "MultAnswers.json");
+            DeserializeAndAdd<QuizElementSingleAnswer>(basePath + "SingleAnswer.json");
+            DeserializeAndAdd<QuizElementText>(basePath + "Text.json");
+            DeserializeAndAdd<QuizElementTrueFalse>(basePath + "TrueFalse.json");
+        }
+
+        static void DeserializeAndAdd<T>(string path)
+        {
+            string jsonString = File.ReadAllText(path);
+
+            List<T> quizElementList = JsonConvert.DeserializeObject<List<T>>(jsonString);
+
+            foreach(var question in quizElementList)
+            {
+                _quizElements.Add((QuizElement)(object)question);
+            }
+        }
+
+        static void AddToDatabase<T>(QuizElement quizElement, string path)
+        {
+            string jsonString = File.ReadAllText(path);
+
+            List<T> quizElementList = JsonConvert.DeserializeObject<List<T>>(jsonString);
+
+            quizElementList.Add((T)(object)quizElement);
+
+            jsonString = JsonConvert.SerializeObject(quizElementList, Formatting.Indented);
+
+            File.WriteAllText(path, jsonString);
+
         }
     }
 }

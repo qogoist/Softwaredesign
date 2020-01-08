@@ -1,0 +1,27 @@
+[
+    {
+        "question": "What buildings exist at the HFU?",
+        "answers": [
+            {
+                "text": "A",
+                "isTrue": true
+            },
+            {
+                "text": "B",
+                "isTrue": true
+            },
+            {
+                "text": "X",
+                "isTrue": false
+            },
+            {
+                "text": "Y",
+                "isTrue": false
+            },
+            {
+                "text": "C",
+                "isTrue": true
+            }
+        ]
+    }
+]

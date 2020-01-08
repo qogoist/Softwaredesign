@@ -1,0 +1,19 @@
+[
+    {
+        "question": "Is programming an art?",
+        "answers": [
+            {
+                "text": "Yes",
+                "isTrue": false
+            },
+            {
+                "text": "No",
+                "isTrue": false
+            },
+            {
+                "text": "Maybe",
+                "isTrue": true
+            }
+        ]
+    }
+]

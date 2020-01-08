@@ -1,0 +1,12 @@
+[
+    {
+        "question": "How many fingers do you have?",
+        "correctAnswer": 10,
+        "tolerance": 0.1
+    },
+    {
+        "question": "How many students are sitting in this room?",
+        "correctAnswer": 7,
+        "tolerance": 0
+    }
+]

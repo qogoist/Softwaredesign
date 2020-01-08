@@ -6,4 +6,8 @@
     <RootNamespace>Aufgabe_4_5_Quiz</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
 </Project>
