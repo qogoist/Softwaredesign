@@ -6,7 +6,7 @@ namespace Operations
     {
         public static IOperation[] GetOperations()
         {
-            return new IOperation[] { new Add(), new Subtract(), new Multiply(), new Divide(), new Power(), new GCF() };
+            return new IOperation[] { new AddOperation(), new SubtractOperation(), new MultiplyOperation(), new DivideOperation(), new PowerOperation(), new GCFOperation() };
         }
     }
 }
